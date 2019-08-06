@@ -5,8 +5,11 @@ This is the Computer Networks Mini Project,
 
 The creators of this project are:
 1.) Aditya Kawale (Team Leader)    -TECOC338
+
 2.) Rajat Kulkarni                 -TECOC342
+
 3.) Vishal Dusane                  -TECOC320
+
 4.) Sharvari Gaikwad               -TECOC321
 
 Aim:

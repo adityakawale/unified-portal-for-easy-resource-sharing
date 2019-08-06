@@ -3,7 +3,12 @@ Welcome to Git Repository of our project!
 This is the Computer Networks Mini Project,
 "Unified Portal for easy resource sharing between an institution"
 
+----------------------------------------------------------------------------------------
+
+
 The creators of this project are:
+
+----------------------------------------------------------------------------------------
 
 1.) Aditya Kawale (Team Leader)    -TECOC338
 
@@ -13,22 +18,25 @@ The creators of this project are:
 
 4.) Sharvari Gaikwad               -TECOC321
 
+----------------------------------------------------------------------------------------
+
 Aim:
+
 To create a platform to share files, chat with people, send feedbacks, send crash reports and error logs to the database for further maintenance,
 all this with easy Graphical User Interface.
 
 Computer Science concepts used:
 
--Computer Networks
+    -Computer Networks
 
--Software Programming
+    -Software Programming
 
--Database Connectivity
+    -Database Connectivity
 
--Software Management and Project Management
+    -Software Management and Project Management
 
 Area of Thrust:
-E-learning
+    -E-learning
 
 Technologies used:
 

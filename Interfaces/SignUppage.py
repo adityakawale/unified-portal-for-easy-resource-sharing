@@ -14,8 +14,8 @@ mydb = mysql.connector.connect(
 
 host = "localhost",
 user = "root",
-passwd = "root",
-database = "CN"
+passwd = "aditya",
+database = "cn"
 
 )
 

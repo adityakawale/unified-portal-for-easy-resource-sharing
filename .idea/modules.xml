@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CN.iml" filepath="$PROJECT_DIR$/.idea/CN.iml" />
       <module fileurl="file://$PROJECT_DIR$/../CN_practice/.idea/CN_practice.iml" filepath="$PROJECT_DIR$/../CN_practice/.idea/CN_practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ML/.idea/ML.iml" filepath="$PROJECT_DIR$/../ML/.idea/ML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SDL_WHR/.idea/SDL_WHR.iml" filepath="$PROJECT_DIR$/../SDL_WHR/.idea/SDL_WHR.iml" />
     </modules>
   </component>
 </project>

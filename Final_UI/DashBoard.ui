@@ -13,33 +13,10 @@
   <property name="windowTitle">
    <string>DashBoard</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(199, 199, 199);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>0</y>
-      <width>211</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="LoggedStatus">
-       <property name="text">
-        <string>Logged In :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DbUsername">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="Welcome">
     <property name="geometry">
      <rect>
@@ -50,7 +27,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0000;&quot;&gt;** WELCOME **&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ff0000;&quot;&gt;** DASHBOARD **&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -68,6 +45,9 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(65, 205, 82);</string>
+    </property>
     <property name="text">
      <string>FileSharing</string>
     </property>
@@ -81,11 +61,14 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
      <string>Chat</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Feedback">
+   <widget class="QPushButton" name="Elibrary">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -94,8 +77,11 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>Feedback</string>
+     <string>E-library</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Report">
@@ -106,6 +92,9 @@
       <width>201</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(65, 205, 82);</string>
     </property>
     <property name="text">
      <string>Report</string>

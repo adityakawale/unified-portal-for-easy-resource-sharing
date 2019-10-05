@@ -151,7 +151,6 @@ class Ui_LoginPage(object):
 
     def __del__(self):
         mycursor = self.mydb.cursor()
-        print("Destructed")
         if self.result != "":
             query = "update students set status = 'NA',ip = NULL where name = %s"
             inputs = self.result

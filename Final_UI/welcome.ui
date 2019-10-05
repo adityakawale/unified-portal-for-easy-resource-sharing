@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Initial</class>
+ <widget class="QDialog" name="Initial">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>637</width>
+    <height>479</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Welcome</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(199, 199, 199);</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>30</y>
+     <width>399</width>
+     <height>119</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(65, 205, 82);
+font: 24pt &quot;Comic Sans MS&quot;;</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;        WHO ARE YOU?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>170</y>
+     <width>261</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="Teacher">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Teacher&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Images/teacher.JPG</normaloff>../Images/teacher.JPG</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>90</width>
+        <height>90</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="Student">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Student&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Images/student.JPG</normaloff>../Images/student.JPG</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>90</width>
+        <height>90</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="Library">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>300</y>
+     <width>119</width>
+     <height>99</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Library&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../Images/download.png</normaloff>../Images/download.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>90</width>
+     <height>90</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

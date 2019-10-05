@@ -120,7 +120,7 @@
      <item>
       <widget class="QLabel" name="who">
        <property name="text">
-        <string/>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;null&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -129,9 +129,9 @@
    <widget class="QPushButton" name="refresh">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>302</x>
       <y>6</y>
-      <width>93</width>
+      <width>51</width>
       <height>28</height>
      </rect>
     </property>
@@ -153,24 +153,24 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="actionAccount_Details"/>
-    <addaction name="actionChange_password"/>
-    <addaction name="actionLogout"/>
+    <addaction name="AccountDetails"/>
+    <addaction name="ChangePassword"/>
+    <addaction name="Logout"/>
    </widget>
    <addaction name="menuSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionChange_password">
+  <action name="ChangePassword">
    <property name="text">
     <string>Change password</string>
    </property>
   </action>
-  <action name="actionLogout">
+  <action name="Logout">
    <property name="text">
     <string>Logout</string>
    </property>
   </action>
-  <action name="actionAccount_Details">
+  <action name="AccountDetails">
    <property name="text">
     <string>Account Details</string>
    </property>

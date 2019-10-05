@@ -9,6 +9,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import mysql.connector
 import pymsgbox
+import socket
+
 
 def error_function(obj):
     pymsgbox.alert("Passwords don't match","Error")
@@ -40,9 +42,10 @@ class Signuppage(object):
         name = self.name_ip.text()
         pa = self.password_ip.text()
         cpa = self.cpassword_ip.text()
+        ip = socket.gethostbyname(socket.gethostname())
         if pa == cpa:
-            inputs = (erp,roll,year,dv,name,pa)
-            query = "insert into students values(%s,%s,%s,%s,%s,%s)"
+            inputs = (erp,roll,year,dv,name,pa,"NA",ip)
+            query = "insert into students values(%s,%s,%s,%s,%s,%s,%s,%s)"
             mycursor.execute(query,inputs)
             self.mydb.commit()
             successfull_function(self)

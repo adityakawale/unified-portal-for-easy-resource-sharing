@@ -5,18 +5,20 @@
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
-
+import socket
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Signuppage import *
 from DashBoard import *
 import mysql.connector
 import pymsgbox
+import threading
 
-
+from Final_UI.DashBoard import Ui_DashBoard
 
 
 class Ui_LoginPage(object):
+    result = ""
     def __init__(self):
         self.mydb = mysql.connector.connect(
             host="localhost",
@@ -34,7 +36,7 @@ class Ui_LoginPage(object):
     def jump_dashboard(self):
         self.DashBoard = QtWidgets.QMainWindow()
         self.ui = Ui_DashBoard()
-        self.ui.setupUi(self.DashBoard)
+        self.ui.setupUi(self.DashBoard,self.result[0])
         self.DashBoard.show()
 
 
@@ -48,12 +50,22 @@ class Ui_LoginPage(object):
         inputs = (us,pa)
 
         mycursor.execute(query,inputs)
+        self.result = list(sum(mycursor,()))
 
-        result = list(sum(mycursor,()))
-        if not result:
+
+        if not self.result:
             pymsgbox.alert('Wrong Credentials', 'Error')
         else:
-            pymsgbox.alert("Logged in as : %s" %result, "Success")
+            pymsgbox.alert("Logged in as : %s" %self.result[0], "Success")
+            query = "update students set status = 'A' where name = %s"
+            mycursor.execute(query,self.result)
+            self.mydb.commit()
+
+            ip = socket.gethostbyname(socket.gethostname())
+            query = "update students set ip = %s where name = %s"
+            mycursor.execute(query,(ip,self.result[0]))
+            self.mydb.commit()
+
             self.jump_dashboard()
 
 
@@ -140,7 +152,15 @@ class Ui_LoginPage(object):
         self.label.setText(_translate("LoginPage", " WELCOME"))
 
     def __del__(self):
-        self.mydb.close()
+        mycursor = self.mydb.cursor()
+        if self.result != "":
+            query = "update students set status = 'NA',ip = NULL where name = %s"
+            inputs = self.result
+            mycursor.execute(query,inputs)
+            self.mydb.commit()
+            self.mydb.close()
+        else:
+            self.mydb.close()
 
 
 if __name__ == "__main__":

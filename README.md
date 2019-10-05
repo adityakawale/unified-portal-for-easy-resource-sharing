@@ -40,7 +40,7 @@ Area of Thrust:
 
 Technologies used:
 
-1.) Atom editor                  -coding
+1.) PyCharm IDE                  -coding
 
 2.) Qt designer with PyQt5       -GUI creation
 

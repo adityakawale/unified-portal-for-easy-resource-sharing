@@ -16,19 +16,18 @@ import pymsgbox
 import os
 
 class Ui_DashBoard(object):
-    res = ""
+    wow = ""
 
     def changepassfn(self):
         self.InputPassword = QtWidgets.QDialog()
         self.ui = Ui_InputPassword()
-        self.ui.setupUi(self.InputPassword,self.res)
+        self.ui.setupUi(self.InputPassword, self.wow)
         self.InputPassword.show()
-    def accdetsfn(self):
 
     def refresh_clicked(self):
-        self.who.setText(self.res)
+        self.who.setText(self.wow)
 
-    def setupUi(self, DashBoard,res):
+    def setupUi(self, DashBoard,res1):
         DashBoard.setObjectName("DashBoard")
         DashBoard.resize(640, 480)
         DashBoard.setStyleSheet("background-color: rgb(199, 199, 199);")
@@ -84,28 +83,22 @@ class Ui_DashBoard(object):
         self.ChangePassword.setObjectName("ChangePassword")
         self.Logout = QtWidgets.QAction(DashBoard)
         self.Logout.setObjectName("Logout")
-        self.AccountDetails = QtWidgets.QAction(DashBoard)
-        self.AccountDetails.setObjectName("AccountDetails")
         self.AccDets = QtWidgets.QAction(DashBoard)
         self.AccDets.setObjectName("AccDets")
         self.ChangePass = QtWidgets.QAction(DashBoard)
         self.ChangePass.setObjectName("ChangePass")
-        self.menuSettings.addAction(self.AccDets)
         self.menuSettings.addAction(self.ChangePass)
         self.menuSettings.addSeparator()
         self.menuSettings.addAction(self.Logout)
         self.menubar.addAction(self.menuSettings.menuAction())
 
-        self.res = res;
+        self.wow = res1;
         self.refresh.clicked.connect(self.refresh_clicked)
 
-        self.AccDets.setShortcut('Ctrl+A')
         self.ChangePass.setShortcut('Ctrl+P')
         self.Logout.setShortcut('Ctrl+Q')
         self.Logout.triggered.connect(qApp.quit)
         self.ChangePass.triggered.connect(self.changepassfn)
-        self.AccDets.triggered.connect(self.accdetsfn)
-
 
         self.retranslateUi(DashBoard)
         QtCore.QMetaObject.connectSlotsByName(DashBoard)
@@ -124,8 +117,6 @@ class Ui_DashBoard(object):
         self.menuSettings.setTitle(_translate("DashBoard", "Settings"))
         self.ChangePassword.setText(_translate("DashBoard", "Change password"))
         self.Logout.setText(_translate("DashBoard", " Logout+Quit"))
-        self.AccountDetails.setText(_translate("DashBoard", "Account Details"))
-        self.AccDets.setText(_translate("DashBoard", "Account Details"))
         self.ChangePass.setText(_translate("DashBoard", "Change Password"))
 
 

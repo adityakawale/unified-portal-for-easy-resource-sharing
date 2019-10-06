@@ -19,6 +19,7 @@ class Ui_InputPassword(object):
         inputs = (cp, self.res)
         mycursor.execute(query,inputs)
         mydb.commit()
+        mycursor.close()
         pymsgbox.alert("Successfully changed the password!","Success")
 
     def setupUi(self, InputPassword,res):

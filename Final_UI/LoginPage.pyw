@@ -8,15 +8,22 @@
 import socket
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Signuppage import *
-from DashBoard import *
+from Final_UI.Signuppage import *
+from Final_UI.DashBoard import *
 import mysql.connector
 import pymsgbox
 
+mydb = mysql.connector.connect(
+    host="localhost",
+    username="root",
+    passwd="",
+    database="pccoe"
+)
 
 class Ui_LoginPage(object):
     result = ""
     def __init__(self):
+        global mydb
         self.mydb = mysql.connector.connect(
             host="localhost",
             username="root",
@@ -151,6 +158,7 @@ class Ui_LoginPage(object):
 
     def __del__(self):
         mycursor = self.mydb.cursor()
+        print("Destructed")
         if self.result != "":
             query = "update students set status = 'NA',ip = NULL where name = %s"
             inputs = self.result

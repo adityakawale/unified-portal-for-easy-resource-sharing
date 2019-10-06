@@ -140,6 +140,7 @@
     </property>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -153,13 +154,13 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="AccountDetails"/>
-    <addaction name="ChangePassword"/>
+    <addaction name="AccDets"/>
+    <addaction name="ChangePass"/>
+    <addaction name="separator"/>
     <addaction name="Logout"/>
    </widget>
    <addaction name="menuSettings"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="ChangePassword">
    <property name="text">
     <string>Change password</string>
@@ -167,12 +168,22 @@
   </action>
   <action name="Logout">
    <property name="text">
-    <string>Logout</string>
+    <string> Logout+Quit</string>
    </property>
   </action>
   <action name="AccountDetails">
    <property name="text">
     <string>Account Details</string>
+   </property>
+  </action>
+  <action name="AccDets">
+   <property name="text">
+    <string>Account Details</string>
+   </property>
+  </action>
+  <action name="ChangePass">
+   <property name="text">
+    <string>Change Password</string>
    </property>
   </action>
  </widget>

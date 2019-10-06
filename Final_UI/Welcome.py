@@ -7,9 +7,9 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from LoginPage import *
 from functools import partial
 import os
+
 
 class Ui_Initial(object):
     role = ""
@@ -20,7 +20,6 @@ class Ui_Initial(object):
             self.role = 1
         elif r == self.Library:
             self.role = 2
-        os.chdir('D:\\Projects\CN\Final_UI')
         os.startfile('LoginPage.pyw')
         Initial.close()
 

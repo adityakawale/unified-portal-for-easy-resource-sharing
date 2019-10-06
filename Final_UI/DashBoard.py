@@ -6,12 +6,25 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
-import LoginPage as lp
+from PyQt5.QtWidgets import qApp, QInputDialog
+from Final_UI.LoginPage import *
+from Final_UI.InputPassword import *
+import mysql.connector
+import pymsgbox
+import os
 
 class Ui_DashBoard(object):
     res = ""
+
+    def changepassfn(self):
+        self.InputPassword = QtWidgets.QDialog()
+        self.ui = Ui_InputPassword()
+        self.ui.setupUi(self.InputPassword,self.res)
+        self.InputPassword.show()
+    def accdetsfn(self):
+
     def refresh_clicked(self):
         self.who.setText(self.res)
 
@@ -58,28 +71,41 @@ class Ui_DashBoard(object):
         self.refresh.setGeometry(QtCore.QRect(302, 6, 51, 28))
         self.refresh.setObjectName("refresh")
         DashBoard.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(DashBoard)
+        self.statusbar.setObjectName("statusbar")
+        DashBoard.setStatusBar(self.statusbar)
         self.menubar = QtWidgets.QMenuBar(DashBoard)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 26))
         self.menubar.setObjectName("menubar")
         self.menuSettings = QtWidgets.QMenu(self.menubar)
         self.menuSettings.setObjectName("menuSettings")
         DashBoard.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(DashBoard)
-        self.statusbar.setObjectName("statusbar")
-        DashBoard.setStatusBar(self.statusbar)
         self.ChangePassword = QtWidgets.QAction(DashBoard)
         self.ChangePassword.setObjectName("ChangePassword")
         self.Logout = QtWidgets.QAction(DashBoard)
         self.Logout.setObjectName("Logout")
         self.AccountDetails = QtWidgets.QAction(DashBoard)
         self.AccountDetails.setObjectName("AccountDetails")
-        self.menuSettings.addAction(self.AccountDetails)
-        self.menuSettings.addAction(self.ChangePassword)
+        self.AccDets = QtWidgets.QAction(DashBoard)
+        self.AccDets.setObjectName("AccDets")
+        self.ChangePass = QtWidgets.QAction(DashBoard)
+        self.ChangePass.setObjectName("ChangePass")
+        self.menuSettings.addAction(self.AccDets)
+        self.menuSettings.addAction(self.ChangePass)
+        self.menuSettings.addSeparator()
         self.menuSettings.addAction(self.Logout)
         self.menubar.addAction(self.menuSettings.menuAction())
 
         self.res = res;
         self.refresh.clicked.connect(self.refresh_clicked)
+
+        self.AccDets.setShortcut('Ctrl+A')
+        self.ChangePass.setShortcut('Ctrl+P')
+        self.Logout.setShortcut('Ctrl+Q')
+        self.Logout.triggered.connect(qApp.quit)
+        self.ChangePass.triggered.connect(self.changepassfn)
+        self.AccDets.triggered.connect(self.accdetsfn)
+
 
         self.retranslateUi(DashBoard)
         QtCore.QMetaObject.connectSlotsByName(DashBoard)
@@ -97,8 +123,10 @@ class Ui_DashBoard(object):
         self.refresh.setText(_translate("DashBoard", "Refresh"))
         self.menuSettings.setTitle(_translate("DashBoard", "Settings"))
         self.ChangePassword.setText(_translate("DashBoard", "Change password"))
-        self.Logout.setText(_translate("DashBoard", "Logout"))
+        self.Logout.setText(_translate("DashBoard", " Logout+Quit"))
         self.AccountDetails.setText(_translate("DashBoard", "Account Details"))
+        self.AccDets.setText(_translate("DashBoard", "Account Details"))
+        self.ChangePass.setText(_translate("DashBoard", "Change Password"))
 
 
 if __name__ == "__main__":

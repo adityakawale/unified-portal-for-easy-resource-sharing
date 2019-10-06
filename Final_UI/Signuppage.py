@@ -42,9 +42,9 @@ class Signuppage(object):
         name = self.name_ip.text()
         pa = self.password_ip.text()
         cpa = self.cpassword_ip.text()
-        ip = socket.gethostbyname(socket.gethostname())
+        #ip = socket.gethostbyname(socket.gethostname())
         if pa == cpa:
-            inputs = (erp,roll,year,dv,name,pa,"NA",ip)
+            inputs = (erp,roll,year,dv,name,pa,"NA","NULL")
             query = "insert into students values(%s,%s,%s,%s,%s,%s,%s,%s)"
             mycursor.execute(query,inputs)
             self.mydb.commit()

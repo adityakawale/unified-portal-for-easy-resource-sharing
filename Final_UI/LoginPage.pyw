@@ -13,12 +13,15 @@ from Final_UI.DashBoard import *
 import mysql.connector
 import pymsgbox
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    username="root",
-    passwd="",
-    database="pccoe"
-)
+try:
+    mydb = mysql.connector.connect(
+        host="localhost",
+        username="root",
+        passwd="",
+        database="pccoe"
+    )
+except:
+    pymsgbox.alert("Xampp Server not ON!")
 
 class Ui_LoginPage(object):
     result = ""

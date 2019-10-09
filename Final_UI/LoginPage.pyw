@@ -54,12 +54,15 @@ class Ui_LoginPage(object):
         mycursor = self.mydb.cursor()
         us = self.username_ip.text()
         pa = self.password_ip.text()
-        query = "select name from students where erp = %s and pass = %s"
-        inputs = (us,pa)
+        if (us.isalnum() and pa.isalnum()):
+            query = "select name from students where erp = %s and pass = %s"
+            inputs = (us,pa)
 
-        mycursor.execute(query,inputs)
-        self.result = list(sum(mycursor,()))
-
+            mycursor.execute(query,inputs)
+            self.result = list(sum(mycursor,()))
+        else:
+            pymsgbox.alert('Credentials not in alphanumeric manner!')
+            return
 
         if not self.result:
             pymsgbox.alert('Wrong Credentials', 'Error')
@@ -81,7 +84,7 @@ class Ui_LoginPage(object):
         self.username_ip.clear()
         self.password_ip.clear()
 
-    def setupUi(self, LoginPage,role = 1):
+    def setupUi(self, LoginPage,role=1):
         LoginPage.setObjectName("LoginPage")
         LoginPage.resize(626, 480)
         LoginPage.setStyleSheet("background-color: rgb(199, 199, 199);")

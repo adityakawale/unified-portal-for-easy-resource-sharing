@@ -43,6 +43,7 @@ class Signuppage(object):
         pa = self.password_ip.text()
         cpa = self.cpassword_ip.text()
         #ip = socket.gethostbyname(socket.gethostname())
+
         if (erp.isalnum() and roll.isalnum() and year.isalnum() and dv.isalnum() and name.isalnum() and pa.isalnum() and cpa.isalnum()):
             if (len(pa) <= 6 and len(cpa)<=6 ):
                 if pa == cpa:

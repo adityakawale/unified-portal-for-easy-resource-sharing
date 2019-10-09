@@ -10,6 +10,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import mysql.connector
 import pymsgbox
 import socket
+import pymsgbox
+
 
 
 def error_function(obj):
@@ -30,6 +32,7 @@ class Signuppage(object):
             passwd="",
             database="pccoe"
         )
+        pymsgbox.alert('Connected to Student Database!')
     def __del__(self):
         self.mydb.close()
 
@@ -57,7 +60,7 @@ class Signuppage(object):
                 else:
                     error_function(self)
             else:
-                pymsgbox.alert('Enter 6 alphanumeric characters only!')
+                pymsgbox.alert('Enter 8 alphanumeric characters only!')
                 self.password_ip.clear()
                 self.cpassword_ip.clear()
         else:

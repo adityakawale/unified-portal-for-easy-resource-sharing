@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'LoginPage.ui'
+# Form implementation generated from reading ui file 'LoginPage_library.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
+
 import socket
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
+from Final_UI.Library import Ui_LibrarySignup
 from Final_UI.Signuppage import *
 from Final_UI.DashBoard import *
 import mysql.connector
@@ -25,6 +28,7 @@ except:
 
 class Ui_LoginPage(object):
     result = ""
+
     def __init__(self):
         global mydb
         self.mydb = mysql.connector.connect(
@@ -35,10 +39,10 @@ class Ui_LoginPage(object):
         )
 
     def jump_signuppage(self):
-        self.Dialog = QtWidgets.QDialog()
-        self.ui = Signuppage()
-        self.ui.setupUi(self.Dialog)
-        self.Dialog.show()
+        self.LibrarySignup = QtWidgets.QDialog()
+        self.ui = Ui_LibrarySignup()
+        self.ui.setupUi(self.LibrarySignup)
+        self.LibrarySignup.show()
 
     def jump_dashboard(self):
         self.DashBoard = QtWidgets.QMainWindow()
@@ -54,7 +58,7 @@ class Ui_LoginPage(object):
         us = self.username_ip.text()
         pa = self.password_ip.text()
         if (us.isalnum() and pa.isalnum()):
-            query = "select name from students where erp = %s and pass = %s"
+            query = "select name from library where erp = %s and pass = %s"
             inputs = (us,pa)
 
             mycursor.execute(query,inputs)
@@ -67,12 +71,12 @@ class Ui_LoginPage(object):
             pymsgbox.alert('Wrong Credentials', 'Error')
         else:
             pymsgbox.alert("Logged in as : %s" %self.result[0], "Success")
-            query = "update students set status = 'A' where name = %s"
+            query = "update library set status = 'A' where name = %s"
             mycursor.execute(query,(self.result))
             self.mydb.commit()
 
             ip = socket.gethostbyname(socket.gethostname())
-            query = "update students set ip = %s where name = %s"
+            query = "update library set ip = %s where name = %s"
             mycursor.execute(query,(ip,self.result[0]))
             self.mydb.commit()
 
@@ -82,6 +86,7 @@ class Ui_LoginPage(object):
     def clear_clicked(self):
         self.username_ip.clear()
         self.password_ip.clear()
+
 
     def setupUi(self, LoginPage):
         LoginPage.setObjectName("LoginPage")
@@ -143,11 +148,10 @@ class Ui_LoginPage(object):
         self.logo.setPixmap(QtGui.QPixmap("../Images/logog.JPG"))
         self.logo.setObjectName("logo")
 
-###
         self.Signup.clicked.connect(self.jump_signuppage)
         self.Login.clicked.connect(self.login_clicked)
         self.Clear.clicked.connect(self.clear_clicked)
-###
+
         self.retranslateUi(LoginPage)
         QtCore.QMetaObject.connectSlotsByName(LoginPage)
 
@@ -160,19 +164,17 @@ class Ui_LoginPage(object):
         self.Signup.setText(_translate("LoginPage", "Signup"))
         self.Clear.setText(_translate("LoginPage", "Clear"))
         self.label.setText(_translate("LoginPage", " WELCOME"))
-
     def __del__(self):
         mycursor = self.mydb.cursor()
         print("Destructed")
         if self.result != "":
-            query = "update students set status = 'NA',ip = NULL where name = %s"
+            query = "update library set status = 'NA',ip = NULL where name = %s"
             inputs = self.result
             mycursor.execute(query,inputs)
             self.mydb.commit()
             self.mydb.close()
         else:
             self.mydb.close()
-
 
 if __name__ == "__main__":
     import sys

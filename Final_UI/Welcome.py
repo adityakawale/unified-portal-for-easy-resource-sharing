@@ -5,10 +5,12 @@
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
-
+import pymsgbox
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import os
+
+from Final_UI.LoginPage import Ui_LoginPage
 
 
 class Ui_Initial(object):
@@ -16,11 +18,17 @@ class Ui_Initial(object):
     def jump_login(self,r):
         if r == self.Teacher:
             self.role = 0
+            os.startfile('LoginPage_teacher.pyw')
         elif r == self.Student:
             self.role = 1
+            os.startfile('LoginPage.pyw')
         elif r == self.Library:
             self.role = 2
-        os.startfile('LoginPage.pyw')
+            os.startfile('LoginPage_library.pyw')
+
+
+
+
         Initial.close()
 
 

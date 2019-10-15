@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import LIBRARY.rolefinder as rf
 # Form implementation generated from reading ui file 'Signuppage.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
@@ -32,40 +32,43 @@ class Signuppage(object):
             passwd="",
             database="pccoe"
         )
-        pymsgbox.alert('Connected to Student Database!')
+
     def __del__(self):
         self.mydb.close()
 
     def enroll_user(self):
-        mycursor = self.mydb.cursor()
-        erp = self.erp_ip.text()
-        roll = self.roll_ip.text()
-        year = self.year_ip.text()
-        dv = self.div_ip.text()
-        name = self.name_ip.text()
-        pa = self.password_ip.text()
-        cpa = self.cpassword_ip.text()
-        #ip = socket.gethostbyname(socket.gethostname())
+        w = rf.rd()
+        if w == 1:
+            pymsgbox.alert('Connected to Student Database!')
+            mycursor = self.mydb.cursor()
+            erp = self.erp_ip.text()
+            roll = self.roll_ip.text()
+            year = self.year_ip.text()
+            dv = self.div_ip.text()
+            name = self.name_ip.text()
+            pa = self.password_ip.text()
+            cpa = self.cpassword_ip.text()
+            #ip = socket.gethostbyname(socket.gethostname())
 
-        if (erp.isalnum() and roll.isalnum() and year.isalnum() and dv.isalnum() and name.isalnum() and pa.isalnum() and cpa.isalnum()):
-            if (len(pa) <= 6 and len(cpa)<=6 ):
-                if pa == cpa:
-                    inputs = (erp,roll,year,dv,name,pa,"NA","NULL")
-                    query = "insert into students values(%s,%s,%s,%s,%s,%s,%s,%s)"
-                    mycursor.execute(query,inputs)
-                    self.mydb.commit()
-                    successfull_function(self)
-                    mycursor.close()
-                    self.mydb.close()
+            if (erp.isalnum() and roll.isalnum() and year.isalpha() and dv.isalpha() and not(name.isdigit()) and pa.isalnum() and cpa.isalnum()):
+                if (len(pa) <= 6 and len(cpa)<=6 ):
+                    if pa == cpa:
+                        inputs = (erp,roll,year,dv,name,pa,"NA","NULL")
+                        query = "insert into students values(%s,%s,%s,%s,%s,%s,%s,%s)"
+                        mycursor.execute(query,inputs)
+                        self.mydb.commit()
+                        successfull_function(self)
+                        mycursor.close()
+                        self.mydb.close()
+                    else:
+                        error_function(self)
                 else:
-                    error_function(self)
+                    pymsgbox.alert('Enter 8 alphanumeric characters only!')
+                    self.password_ip.clear()
+                    self.cpassword_ip.clear()
             else:
-                pymsgbox.alert('Enter 8 alphanumeric characters only!')
-                self.password_ip.clear()
-                self.cpassword_ip.clear()
-        else:
-            pymsgbox.alert('Provide Alphanumeric Inputs Only!')
-            return
+                pymsgbox.alert('Provide Alphanumeric Inputs Only!')
+                return
 
     def clear_cliked(self):
         self.erp_ip.clear()

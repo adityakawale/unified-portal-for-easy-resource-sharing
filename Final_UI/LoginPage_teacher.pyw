@@ -26,7 +26,7 @@ try:
 except:
     pymsgbox.alert("Xampp Server not ON!")
 
-class Ui_LoginPage(object):
+class Ui_LoginPageTeacher(object):
     result = ""
 
     def __init__(self):
@@ -178,9 +178,9 @@ class Ui_LoginPage(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    LoginPage = QtWidgets.QDialog()
-    ui = Ui_LoginPage()
-    ui.setupUi(LoginPage)
-    LoginPage.show()
+    LoginPage_Teacher = QtWidgets.QDialog()
+    ui = Ui_LoginPageTeacher()
+    ui.setupUi(LoginPage_Teacher)
+    LoginPage_Teacher.show()
     sys.exit(app.exec_())
 

@@ -1,33 +1,32 @@
 # -*- coding: utf-8 -*-
-
+import LIBRARY.rolefinder as rf
 # Form implementation generated from reading ui file 'Welcome.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
+
+
 import pymsgbox
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import os
-
 from Final_UI.LoginPage import Ui_LoginPage
+import mysql.connector as conn
 
 
 class Ui_Initial(object):
     role = ""
     def jump_login(self,r):
         if r == self.Teacher:
-            self.role = 0
+            rf.wrt(0)
             os.startfile('LoginPage_teacher.pyw')
         elif r == self.Student:
-            self.role = 1
+            rf.wrt(1)
             os.startfile('LoginPage.pyw')
         elif r == self.Library:
-            self.role = 2
+            rf.wrt(2)
             os.startfile('LoginPage_library.pyw')
-
-
-
 
         Initial.close()
 
@@ -71,8 +70,8 @@ class Ui_Initial(object):
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("../Images/download.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.Library.setIcon(icon2)
-        self.Library.setIconSize(QtCore.QSize(90, 90))
         self.Library.setObjectName("Library")
+        self.Library.setIconSize(QtCore.QSize(90, 90))
 
         self.retranslateUi(Initial)
         QtCore.QMetaObject.connectSlotsByName(Initial)

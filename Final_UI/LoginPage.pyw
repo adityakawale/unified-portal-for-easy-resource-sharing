@@ -6,7 +6,6 @@
 #
 # WARNING! All changes made in this file will be lost!
 import socket
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Final_UI.Signuppage import *
 from Final_UI.DashBoard import *

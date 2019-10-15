@@ -5,22 +5,44 @@
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
-
+import LIBRARY.rolefinder as rf
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Final_UI.LoginPage import *
 import pymsgbox
+import mysql.connector as conn
+mydb = conn.connect(host="localhost",username="root",passwd="",database="pccoe")
 
 class Ui_InputPassword(object):
     res = ""
     def changepasswordfn(self):
-        mycursor = mydb.cursor()
-        cp = self.newpass.text()
-        query = "update students set pass = %s where name = %s"
-        inputs = (cp, self.res)
-        mycursor.execute(query,inputs)
-        mydb.commit()
-        mycursor.close()
-        pymsgbox.alert("Successfully changed the password!","Success")
+        w = rf.rd()
+        if w == '1':
+            mycursor = mydb.cursor()
+            cp = self.newpass.text()
+            query = "update students set pass = %s where name = %s"
+            inputs = (cp, self.res)
+            mycursor.execute(query,inputs)
+            mydb.commit()
+            mycursor.close()
+            pymsgbox.alert("Successfully changed the password!","Success")
+        elif w=='0':
+            mycursor = mydb.cursor()
+            cp = self.newpass.text()
+            query = "update teachers set pass = %s where name = %s"
+            inputs = (cp, self.res)
+            mycursor.execute(query,inputs)
+            mydb.commit()
+            mycursor.close()
+            pymsgbox.alert("Successfully changed the password!","Success")
+        elif w=='2':
+            mycursor = mydb.cursor()
+            cp = self.newpass.text()
+            query = "update library set pass = %s where name = %s"
+            inputs = (cp, self.res)
+            mycursor.execute(query,inputs)
+            mydb.commit()
+            mycursor.close()
+            pymsgbox.alert("Successfully changed the password!","Success")
 
     def setupUi(self, InputPassword,res):
         InputPassword.setObjectName("InputPassword")
